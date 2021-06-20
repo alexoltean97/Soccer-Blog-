@@ -98,8 +98,7 @@
                                              </article>
                                          </div>
                                      </li>
-                                     <li><a class="link link-icon link-icon-left link-classic" href="#"><span class="icon fl-bigmug-line-login12"></span><span class="link-icon-text">Your Account</span></a></li>
-                                     <li><a class="link link-icon link-icon-left link-classic" href="login_admin.php"><span class="icon fl-bigmug-line-login12"></span><span class="link-icon-text">Login</span></a></li>
+                                     <li><a class="link link-icon link-icon-left link-classic" href="#"><span class="icon fl-bigmug-line-login12"></span><span class="link-icon-text">Login</span></a></li>
                                  </ul>
                              </div>
                              <div class="rd-navbar-collapse-toggle rd-navbar-fixed-element-1" data-rd-navbar-toggle=".rd-navbar-collapse"><span></span></div>
