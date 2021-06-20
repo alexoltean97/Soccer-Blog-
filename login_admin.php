@@ -2,9 +2,9 @@
 
 <?php
 
+    $registration = new admin_login();
 
 ?>
-
 
 <div class="loginpanel">
 
