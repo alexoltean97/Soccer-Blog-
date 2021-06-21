@@ -3,6 +3,7 @@
 <?php
 
     $registration = new admin_login();
+    $registration->get_admin();
 
 ?>
 
