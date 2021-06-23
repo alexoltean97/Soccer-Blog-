@@ -1,10 +1,28 @@
 <?php require_once('templates/header.php');?>
 
 <?php
+$adminQuery = new Database();
+$adminUser = "";
+$adminPass = "";
 
-    $registration = new admin_login();
-    $registration->get_admin();
+if(isset($_POST['submit'])){
 
+    $username = trim($_POST['user']);
+    $password = trim($_POST['password']);
+    $adminQuerySet = $adminQuery->adminUserQuery($con->connection,'SELECT * FROM admin');
+
+    while($row = $adminQuerySet->fetch_assoc()){
+
+         $adminUser = trim($row['username']);
+         $adminPass = trim($row['password']);
+
+        if($username === $adminUser && $password === $adminPass){
+            header("Location:admin/index.php");
+        } else{
+            echo "Invalid Credentials";
+        }
+    }
+}
 ?>
 
 <div class="loginpanel">
@@ -13,12 +31,12 @@
     <form method="post" action="login_admin.php">
 
     <div class="txt">
-        <input id="user" name="user" type="text" placeholder="Username or email" required/>
+        <input id="user" name="user" type="text" placeholder="Username or email"/ required>
         <label for="user" class="entypo-user"></label>
     </div>
 
     <div class="txt">
-        <input id="pwd" name="password" type="password" placeholder="Password" required/>
+        <input id="pwd" name="password" type="password" placeholder="Password"/ required>
         <label for="pwd" class="entypo-lock"></label>
     </div>
 
