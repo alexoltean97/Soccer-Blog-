@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Alex
- * Date: 6/23/2021
- * Time: 12:09 PM
- */
 
 class Admins extends Database
 {
