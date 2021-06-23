@@ -36,7 +36,4 @@ class Admins extends Database
             $_SESSION['password'] = trim($_POST['password']);
         }
     }
-
-
-
 }
