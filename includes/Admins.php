@@ -18,6 +18,7 @@ class Admins extends Database
 
             $username = trim($_POST['user']);
             $password = trim($_POST['password']);
+
             $adminQuerySet = $this::returnAdminsQuery($this->connection);
 
             while($row = $adminQuerySet->fetch_assoc()){
@@ -34,5 +35,14 @@ class Admins extends Database
         }
 
     }
+
+    public function adminSession(){
+        if(isset($_POST['submit'])) {
+            $_SESSION['username'] = trim($_POST['user']);
+            $_SESSION['password'] = trim($_POST['password']);
+        }
+    }
+
+
 
 }

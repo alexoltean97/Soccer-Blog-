@@ -6,6 +6,7 @@ $connection = $con->connection;
 
 $loginA = new Admins();
 $loginA->connectAdmin();
+$loginA->adminSession();
 
 
 ?>
