@@ -2,27 +2,12 @@
 
 <?php
 $adminQuery = new Database();
-$adminUser = "";
-$adminPass = "";
+$connection = $con->connection;
 
-if(isset($_POST['submit'])){
+$loginA = new Admins();
+$loginA->connectAdmin();
 
-    $username = trim($_POST['user']);
-    $password = trim($_POST['password']);
-    $adminQuerySet = $adminQuery->adminUserQuery($con->connection,'SELECT * FROM admin');
 
-    while($row = $adminQuerySet->fetch_assoc()){
-
-         $adminUser = trim($row['username']);
-         $adminPass = trim($row['password']);
-
-        if($username === $adminUser && $password === $adminPass){
-            header("Location:admin/index.php");
-        } else{
-            echo "Invalid Credentials";
-        }
-    }
-}
 ?>
 
 <div class="loginpanel">

@@ -1,4 +1,11 @@
-<?php require_once ('../includes/init.php'); ?>
 
+<?php require_once('header.php');?>
+<?php require_once('sidebar.php');?>
 
-<h2>Yuppi</h2>
+<section id="main-content">
+    <section class="wrapper">
+
+    </section>
+</section>
+
+<?php require_once('footer.php');?>
