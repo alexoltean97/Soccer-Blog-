@@ -12,7 +12,6 @@ class Users extends DBconnection
 
 
     public function registerUsers($conn){
-
         if(isset($_POST['submit'])){
 
             $firstName = $this->firstName = $_POST['firstName'];
@@ -24,15 +23,28 @@ class Users extends DBconnection
             $query = "INSERT INTO users (first_name,last_name,username,email,password) 
               VALUES ('$firstName', '$lastName','$username', '$email', '$password') ";
 
-
             if(mysqli_query($conn,$query)){
-             echo "New Record created";
-            } else{
-                echo "Error: " . $query . "<br>" . mysqli_error($conn);
+                $SESSION['basic_username'] = $username;
+                header("Location:index.php");
             }
 
         }
     }
 
+    public function loginUsers($conn){
+
+        if(isset($_POST['submit'])){
+            $username = $this->username = $_POST['username'];
+            $password =  $this->password = $_POST['password'];
+        }
+
+        $result = $query = "SELECT username, password FROM users";
+        mysqli_query($conn, $query);
+
+        while($row = $result->fetch_assoc()){
+
+
+        }
+    }
 }
 
