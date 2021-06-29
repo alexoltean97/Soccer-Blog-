@@ -3,7 +3,9 @@
 <?php
 
 $connection = $con->connection;
-$registerUsers = new Users();
+$userQuery = new Database();
+$loginUsers = new Users();
+$loginUsers->loginUsers($connection);
 
 
 ?>
@@ -11,7 +13,7 @@ $registerUsers = new Users();
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <form id="registrationForm" method="post" action="register_users.php">
+                <form id="registrationForm" method="post" action="login_users.php">
                     <input type="text" class="username" name="username" placeholder="Username"/>
                     <input type="password" class="password" name="password" placeholder="Password"/>
                     <input type="submit" class="submit" name="submit" value="Register">

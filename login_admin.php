@@ -8,14 +8,10 @@ $loginA = new Admins();
 $loginA->connectAdmin();
 $loginA->adminSession();
 
-
 ?>
 
 <div class="loginpanel">
-
-
     <form method="post" action="login_admin.php">
-
     <div class="txt">
         <input id="user" name="user" type="text" placeholder="Username or email"/ required>
         <label for="user" class="entypo-user"></label>
@@ -30,9 +26,7 @@ $loginA->adminSession();
     <div class="buttons">
         <input type="submit" name="submit" value="Login" />
     </div>
-
     </form>
-
 </div>
 
 <span class="resp-info"></span>

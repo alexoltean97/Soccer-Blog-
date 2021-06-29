@@ -98,9 +98,19 @@
                                              </article>
                                          </div>
                                      </li>
-                                     <li><a class="link link-icon link-icon-left link-classic" href="#"><span class="icon fl-bigmug-line-login12"></span><span class="link-icon-text">Login</span></a></li>
+                                     <li><a class="link link-icon link-icon-left link-classic" href="login_users.php"><span class="icon fl-bigmug-line-login12"></span><span class="link-icon-text">Login</span></a></li>
                                      <li><a class="link link-icon link-icon-left link-classic" href="register_users.php"><span class="icon fl-bigmug-line-login12"></span><span class="link-icon-text">Register</span></a></li>
-                                     <li><a class="link link-icon link-icon-left link-classic" href="register_users.php"><span class="icon fl-bigmug-line-login12"></span><span class="link-icon-text"></span></a></li>
+                                     <li><a class="link link-icon link-icon-left link-classic" href="#"><span class="icon fl-bigmug-line-login12"></span><span class="link-icon-text">
+
+                                                 <?php
+                                                 if(isset($_SESSION['normal_user'])){
+                                                 print_r($_SESSION['normal_user']);
+                                                  } else{
+                                                     echo "Member";
+                                                 }
+                                                 ?>
+                                             </span></a></li>
+                                     <li><a class="link link-icon link-icon-left link-classic" href="logout.php"><span class="icon fl-bigmug-line-login12"></span><span class="link-icon-text">Logout</span></a></li>
                                  </ul>
                              </div>
                              <div class="rd-navbar-collapse-toggle rd-navbar-fixed-element-1" data-rd-navbar-toggle=".rd-navbar-collapse"><span></span></div>

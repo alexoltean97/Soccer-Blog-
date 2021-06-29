@@ -2,7 +2,7 @@
 
 
 
-class Users extends DBconnection
+class Users extends Database
 {
     public $firstName;
     public $lastName;
@@ -27,7 +27,6 @@ class Users extends DBconnection
                 $SESSION['basic_username'] = $username;
                 header("Location:index.php");
             }
-
         }
     }
 
@@ -36,15 +35,31 @@ class Users extends DBconnection
         if(isset($_POST['submit'])){
             $username = $this->username = $_POST['username'];
             $password =  $this->password = $_POST['password'];
-        }
 
-        $result = $query = "SELECT username, password FROM users";
-        mysqli_query($conn, $query);
+        $query = "SELECT username, password FROM users";
+        $result =  mysqli_query($conn, $query);
 
         while($row = $result->fetch_assoc()){
+                 $dbUser = $row['username'];
+                 $dbPass = $row['password'];
 
-
+            if($username == $dbUser && $password == $dbPass){
+                echo "<script>alert('you may enter');</script>";
+                $_SESSION['normal_user'] = $username;
+                header('Location:index.php');
+            } else if(empty($username) && empty($password)){
+                echo "Complete the fields";
+            }  else if((!$username == $dbUser && !$password == $dbPass)){
+                echo "Username  and Password wrong";
+            }
+            else if($username == $dbUser && !$password == $dbPass){
+                echo "Password is wrong";
+            }
+            else if(!$username == $dbUser && $password == $dbPass){
+                echo "USerame is wrong";
+            }
         }
+    }
     }
 }
 
