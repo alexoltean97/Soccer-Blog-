@@ -3484,3 +3484,15 @@ ul.chat-available-user li a:hover {
 #copyrights a {
   color: #fff;
 }
+
+.new_article input{
+    margin-bottom: 15px;
+    padding: 10px 0;
+    display: block;
+    width: 60%;
+}
+
+.new_article textarea{
+    width: 60%;
+    height: 300px;
+}

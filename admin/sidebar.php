@@ -17,7 +17,8 @@
                     <span>Articles</span>
                 </a>
                 <ul class="sub">
-                    <li class="active"><a href="general.html">All articles</a></li>
+                    <li class="active"><a href="articles.php">All articles</a></li>
+                    <li class="active"><a href="new_article.php">New article</a></li>
                 </ul>
             </li>
         </ul>
