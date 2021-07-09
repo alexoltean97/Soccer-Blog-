@@ -51,4 +51,64 @@ class articles extends DBconnection
 
     }
 
+
+    public function fetch_single($id){
+
+        $data = null;
+        $query = "SELECT * FROM articles WHERE id='$id'";
+
+        if($sql = $this->connection->query($query)){
+            while ($rows = mysqli_fetch_assoc($sql)){
+                $data[] = $rows;
+            }
+        } else{
+            mysqli_error($this->connection);
+        }
+        return $data;
+    }
+
+
+
+public function delete_single_article($id){
+
+    $query = "DELETE FROM articles WHERE id='$id'";
+
+    if ($sql = $this->connection->query($query)) {
+       return true;
+    } else {
+      return false;
+    }
+}
+
+
+public function edit($id){
+
+    $data = null;
+    $query = "SELECT * FROM articles WHERE id='$id'";
+
+    if($sql = $this->connection->query($query)){
+        while ($rows = mysqli_fetch_assoc($sql)){
+            $data[] = $rows;
+        }
+    } else{
+        mysqli_error($this->connection);
+    }
+    return $data;
+
+}
+
+
+public function update_article($data){
+
+    $query = "UPDATE articles SET author = '$data[author]', '$data[title]', '$data[date]', '$data[content]' WHERE id = '$data[id]'";
+
+    if($sql = $this->connection->query($query)){
+        return true;
+        }
+     else{
+        return false;
+    }
+}
+
+
 }

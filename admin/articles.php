@@ -21,6 +21,7 @@
                 <?php
                 $model = new articles();
                 $rows = $model->fetch();
+
                 $i = 1;
                 if(!empty($rows)){
                     foreach($rows as $row){
@@ -35,9 +36,9 @@
                             <td><?php echo $row['content'];?></td>
 
                             <td>
-                                <a href="read.php?id=<?php echo $row['id'];?>" class="badge badge-info">Read</a>
-                                <a href="delete.php?id=<?php echo $row['id'];?>" class="badge badge-danger">Delete</a>
-                                <a href="edit.php?id=<?php echo $row['id'];?>" class="badge badge-success">Update</a>
+                                <a href="single_article.php?id=<?php echo $row['id'];?>" class="badge badge-info">Read</a>
+                                <a href="delete_article.php?id=<?php echo $row['id'];?>" class="badge badge-danger">Delete</a>
+                                <a href="update_article.php?id=<?php echo $row['id'];?>" class="badge badge-success">Update</a>
                             </td>
                         </tr>
 
