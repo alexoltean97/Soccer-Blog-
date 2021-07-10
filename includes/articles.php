@@ -100,7 +100,7 @@ public function edit($id){
 
 public function update_article($data){
 
-    $query = "UPDATE articles SET author = '$data[author]', '$data[title]', '$data[date]', '$data[content]' WHERE id = '$data[id]'";
+    $query = "UPDATE articles SET author='$data[author]',  date='$data[date]',  content='$data[content]',  title='$data[title]' WHERE id='$data[id]'";
 
     if($sql = $this->connection->query($query)){
         return true;
