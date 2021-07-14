@@ -7,7 +7,9 @@ $model = new articles();
 $id = $_GET['id'];
 $rows = $model->edit($id);
 
+
     if(isset($_POST['edit_article'])){
+
          $data['id'] = $id;
          $data['author'] = $_POST['author'];
          $data['title'] = $_POST['title'];
@@ -37,6 +39,7 @@ $rows = $model->edit($id);
                     <input placeholder="title" type="text" name="title" value="<?php echo $row['title'];?>" class="author-name">
                     <input type="date" name="date" value="<?php echo $row['date'];?>" class="date">
                     <textarea  placeholder="<?php echo $row['content'];?>" name="content" class="content"></textarea>
+                    <input type="file" name="image">
                     <input type="submit" name="edit_article">
                 </form>
                 <?php } ?>

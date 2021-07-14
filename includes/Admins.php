@@ -27,7 +27,6 @@ class Admins extends Database
                 }
             }
         }
-
     }
 
     public function adminSession(){

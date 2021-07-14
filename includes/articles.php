@@ -10,28 +10,39 @@ class articles extends DBconnection
 {
 
 
+
     public function insert(){
 
+        $msg = "";
         if(isset($_POST['submit_article'])){
 
+            // The path to store the uploaded image
+            $target = "../images/".basename($_FILES['image']['name']);
+            $image = $_FILES['image']['name'];
+
             $author = $_POST['author'];
-             $date = $_POST['date'];
-             $content = $_POST['content'];
-             $title = $_POST['title'];
+            $date = $_POST['date'];
+            $content = $_POST['content'];
+            $title = $_POST['title'];
 
-            $query = "INSERT INTO articles (author,date,content,title) 
-              VALUES ('$author', '$date','$content', '$title') ";
+                $query = "INSERT INTO articles (author,date,content,title,image) 
+              VALUES ('$author', '$date','$content', '$title','$image') ";
 
-            $sql = mysqli_query($this->connection,$query);
+                $sql = mysqli_query($this->connection, $query);
 
-            if($sql){
-                echo "<script>alert('Article Created');</script>";
-            } else{
+                if(move_uploaded_file($_FILES['image']['tmp_name'], $target)){
+                   echo $msg = "Image uploaded succesfully";
+                } else{
+                    echo $msg = "There was a problem uploading image";
+                }
 
-                echo "<script>alert('Article Failed');</script>";
-            }
+                if($sql){
+                    echo "<script>alert('Article Created');</script>";
+                } else{
+
+                    echo "<script>alert('Article Failed');</script>";
+                }
         }
-
     }
 
 
@@ -100,14 +111,25 @@ public function edit($id){
 
 public function update_article($data){
 
-    $query = "UPDATE articles SET author='$data[author]',  date='$data[date]',  content='$data[content]',  title='$data[title]' WHERE id='$data[id]'";
+    if(isset($_POST['edit_article'])) {
 
-    if($sql = $this->connection->query($query)){
-        return true;
+
+         $data['author'] = $_POST['author'];
+         $data['title'] = $_POST['title'];
+         $data['date'] = $_POST['date'];
+         $data['content'] = $_POST['content'];
+
+        $query = "UPDATE articles SET author='$data[author]',  date='$data[date]',  content='$data[content]',  title='$data[title]' WHERE id='$data[id]'";
+
+        if($sql = $this->connection->query($query)){
+            return true;
         }
-     else{
-        return false;
+        else{
+            return false;
+        }
+
     }
+
 }
 
 

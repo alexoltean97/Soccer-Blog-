@@ -7,7 +7,7 @@
     </div>
 </article>
 <div class="row row-30">
-    <div class="col-md-6">
+
         <!-- Post Future-->
 
         <?php
@@ -15,9 +15,12 @@
         $model = new articles();
         $data_set = $model->fetch();
 
-        foreach ($data_set as $data){ ?>
+        foreach ($data_set as $data){
 
-        <article class="post-future"><a class="post-future-figure" href="single_article.php?id=<?php echo $data['id']?>"><img src="images/news-2-1-368x287.jpg" alt="" width="368" height="287"/></a>
+            ?>
+            <div class="col-md-6">
+        <article class="post-future"><a class="post-future-figure" href="single_article.php?id=<?php echo $data['id']?>">
+                <img src="<?php echo "images/" . $data['image'];?>" alt="" width="368" height="287"/></a>
             <div class="post-future-main">
                 <h4 class="post-future-title"><a href="#"><?php echo $data['title']; ?></a></h4>
                 <div class="post-future-meta">
