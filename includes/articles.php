@@ -108,16 +108,7 @@ public function edit($id){
 
 }
 
-
-public function update_article($data){
-
-    if(isset($_POST['edit_article'])) {
-
-
-         $data['author'] = $_POST['author'];
-         $data['title'] = $_POST['title'];
-         $data['date'] = $_POST['date'];
-         $data['content'] = $_POST['content'];
+    public function update_article($data){
 
         $query = "UPDATE articles SET author='$data[author]',  date='$data[date]',  content='$data[content]',  title='$data[title]' WHERE id='$data[id]'";
 
@@ -127,10 +118,8 @@ public function update_article($data){
         else{
             return false;
         }
-
     }
 
-}
 
 
 }
